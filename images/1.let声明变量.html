@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 声明变量
+      let a
+      let b, c
+      let d = 100
+      let e = 'string',
+        f = []
+
+      // 1.变量不可以重复声明，var可以
+      // let str = 'abd'
+      // let str = 'edc'  // Uncaught SyntaxError: Identifier 'str' has already been declared
+
+      // 2.块级作用域  es5作用域：全局作用域、函数作用域、eval作用域
+      // {
+      //   let name = '张三'
+      // }
+      // console.log(name)
+
+      // 3. 不存在变量提升
+      // console.log(song) // Uncaught ReferenceError: Cannot access 'song' before initialization
+      // let song = 'sheep'
+
+      // 4.不影响作用域链
+      {
+        let s = '你好'
+        function fn() {
+          console.log(s)
+        }
+        fn()
+      }
+    </script>
+  </body>
+</html>
