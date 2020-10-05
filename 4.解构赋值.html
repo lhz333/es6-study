@@ -10,23 +10,45 @@
       // ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值
       // 1. 数组的解构赋值
       let arr = ['张三', '李四', '王二', '赵六']
-      let [a, b, c, d] = arr
+      let [zhang, li, wang, zhao, qian, sun = '你猜'] = arr // 解构赋值允许指定默认值，只有当一个数组成员严格等于undefined，默认值才会生效
       console.log(arr)
-      console.log(a, b, c, d)
+      console.log(zhang, li, wang, zhao, qian, sun) // 如果解构不成功，变量的值就等于undefined
 
       // 2. 对象的解构赋值
+      // 对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
       let info = {
         name: '张三',
         age: 18,
-        song: function() {
+        song: function () {
           console.log('我会唱歌')
-        }
+        },
       }
-      let {name, age, song} = info
+      let { name, age, song } = info
       console.log(name)
       console.log(age)
       console.log(song)
       song()
+
+      // 3. 字符串的解构赋值
+      const [a, b, c, d, e] = 'hello'
+      console.log(a, b, c, d, e)
+      let { length } = 'hello'
+      console.log(length)
+
+      // 4. 数值和布尔值的解构赋值
+      // 解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。
+      let { toString: s } = 123
+      console.log(s === Number.prototype.toString) // true
+
+      let { toString: bo } = true
+      console.log(bo === Boolean.prototype.toString) // true
+
+      // 5.函数参数的解构赋值
+      function add([x, y]) {
+        return x + y
+      }
+      let sum = add([1, 2])
+      console.log(sum)
     </script>
   </body>
 </html>
