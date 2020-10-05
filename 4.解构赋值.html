@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值
+      // 1. 数组的解构赋值
+      let arr = ['张三', '李四', '王二', '赵六']
+      let [a, b, c, d] = arr
+      console.log(arr)
+      console.log(a, b, c, d)
+
+      // 2. 对象的解构赋值
+      let info = {
+        name: '张三',
+        age: 18,
+        song: function() {
+          console.log('我会唱歌')
+        }
+      }
+      let {name, age, song} = info
+      console.log(name)
+      console.log(age)
+      console.log(song)
+      song()
+    </script>
+  </body>
+</html>
