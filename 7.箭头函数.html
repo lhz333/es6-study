@@ -17,6 +17,7 @@
     console.log(sum)
 
     // 1. this是静态的 this始终指向函数声明时所在作用域下的this的值
+    // 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
     function getname() {
       console.log(this.name)
     }
@@ -38,14 +39,14 @@
     getname.call(people) // 李四
     getname2.call(people) // 张三
 
-    // 2. 不能作为构造函数实例化对象
+    // 2. 不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
     // let Person = (name) => {
     //   this.name = name
     // }
     // let child = new Person()
     // console.log(child) // Uncaught TypeError: Person is not a constructor
 
-    // 3. 不能使用arguments变量
+    // 3. 不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
     // let fna = () => {
     //   console.log(arguments)
     // }
@@ -56,6 +57,8 @@
      // 2) 省略花括号 当代码体只有一条语句的时候，此时return必须省略，而且语句的执行结果就是函数的返回值
      let add = n => n + n
      console.log(add(2)) // 4
+
+     // 5. 不可以使用yield命令，因此箭头函数不能用作 Generator 函数。
 
      
   </script>
