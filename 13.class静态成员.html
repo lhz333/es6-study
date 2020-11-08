@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // es5
+    function Phone() {
+
+    }
+    Phone.name = '苹果'
+    Phone.call = function() {
+      console.log('call')
+    }
+    Phone.prototype.size = '12'
+
+    let iphone = new Phone()
+
+    console.log(iphone.name) // undefined
+    // console.log(iphone.call()) // 报错
+    console.log(iphone.size)
+
+    // es6
+    class Shouji{
+      static name = '小米';
+      static call() {
+        console.log('打电弧')
+      }
+    }
+    let xiaomi = new Shouji()
+    
+    // 静态成员的方法和属性 属于类而不属于实例对象
+    console.log(xiaomi.name)
+    console.log(Shouji.name)
+  </script>
+</body>
+</html>
