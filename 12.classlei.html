@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // es5
+    function Phone(brand, price) {
+      this.brand = brand
+      this.price = price
+    }
+
+    Phone.prototype.call = function() {
+      console.log('我可以电话')
+    }
+
+    let hw = new Phone('华为', 6499)
+    console.log(hw)
+
+    // ES6
+    class Shouji {
+      // constructor 构造方法，名字不可修改
+      constructor(brand, price) {
+        this.brand = brand
+        this.price = price
+      }
+      call() {
+        console.log('我可以打电话呀')
+      }
+    }
+
+    let xiaomi = new Shouji('小米', 3999)
+    console.log(xiaomi)
+  </script>
+</body>
+</html>
