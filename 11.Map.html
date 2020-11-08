@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+</head>
+<body>
+  <script>
+    // 声明Map
+    let map = new Map()
+
+    // 添加元素
+    map.set('name', 'Jenny');
+    map.set('change', function() {
+      console.log('学习吧，少年')
+    })
+    let key = {
+      study: 'es6'
+    }
+    map.set(key, ['js', 'css'])
+
+    console.log(map)
+
+    // size
+    console.log(map.size)
+
+    // 删除元素
+    map.delete('change')
+    console.log(map)
+
+    // 获取元素
+    let value = map.get(key)
+    console.log(value)
+
+    // 使用for...of循环
+    for(let v of map) {
+      console.log(v)
+    }
+
+    // 清空
+    map.clear()
+    console.log(map)
+  </script>
+</body>
+</html>
