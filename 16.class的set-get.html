@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Phone {
+      constructor(brand, price) {
+        this.brand = brand
+        this.price = price
+      }
+      set setPrice(newVal) {
+        console.log('价格被修改了')
+        this.price = newVal
+      }
+      get getPrice() {
+        console.log('读取价格属性')
+        return this.price
+      }
+    }
+
+    let xiaomi = new Phone('小米', 1999)
+    console.log(xiaomi)
+    xiaomi.setPrice = 2499
+    console.log(xiaomi.getPrice)
+  </script>
+</body>
+</html>
