@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>继承</title>
+</head>
+<body>
+  <script>
+    // es5
+    function Phone(brand, price) {
+      this.brand = brand
+      this.price = price
+    }
+
+    Phone.prototype.call = function() {
+      console.log('我可以电话')
+    }
+
+    function SmartPhone(brand, price, color) {
+      Phone.call(this, brand, price)
+      this.color = color
+    }
+
+    // 设置子级构造函数的原型
+    SmartPhone.prototype = new Phone()
+    SmartPhone.prototype.constructor = SmartPhone
+
+    SmartPhone.prototype.playgame = function() {
+      console.log('我可以玩游戏')
+    }
+
+    let nuojiya = new Phone('诺基亚', 199)
+    console.log(nuojiya)
+
+    let xiaomi = new SmartPhone('小米', 2999, '银色')
+
+    xiaomi.call()
+    xiaomi.playgame()
+    console.log(xiaomi)
+  </script>
+</body>
+</html>
