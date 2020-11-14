@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1、Number.EPSILON 是 JavaScript表示的最小精度
+    const equal = (a, b) => Math.abs(a-b) < Number.EPSILON
+
+    console.log(0.1 + 0.2 === 0.3) // false
+    console.log(equal(0.1 + 0.2, 0.3)) // true
+
+    // 1、二进制和八进制
+    let b = 0b10101 // 21
+    let o = 0o777  // 511
+    let d = 100    // 100
+    let x = 0xff   // 255
+
+    console.log(b, o, d, x)
+
+    // 2. Number.isFinite 检测一个数值是否是有限数
+    console.log(Number.isFinite(100))  // true 
+    console.log(Number.isFinite(Infinity)) // false
+
+    // 3. Number.isNaN检测一个数值是否是NaN
+    console.log(Number.isNaN(NaN))  // true
+    console.log(Number.isNaN(null))  // false
+    console.log(Number.isNaN(100))  // false
+
+    // 4. Number.parseInt Number.parseFloat 字符串转整数
+    console.log(Number.parseInt('2323kilhh'))  // 2323
+    console.log(Number.parseFloat('3.2lo'))  // 3.2
+
+    // 5. Number.isInteger 判读一个数是否为整数
+    console.log(Number.isInteger(5)) // true
+    console.log(Number.isInteger(2.5)) // false
+
+    // 6. Math.trunc 将数字的小数部分抹掉
+    console.log(Math.trunc(3.45)) // 3
+
+    // 7. Math.sign 判断一个数到底是正数 负数  还是零
+    console.log(Math.sign(-23))  // -1 负数
+    console.log(Math.sign(0))   // 0 零
+    console.log(Math.sign(3434)) // 1 正数
+
+  </script>
+</body>
+</html>
