@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script src="/js/module1.js"></script>
+  <script>
+    console.log(name)
+    study()
+  </script> -->
+
+  <script type="module">
+    // 通用导入形式
+    // import * as ms from './js/module1.js'
+    
+    // console.log(ms.name)
+    // ms.study()
+
+    // import * as es from './js/module2.js'
+    // console.log(es.name)
+
+    // import * as m3 from './js/module3.js'
+    // console.log(m3.default.name)
+    // m3.default.sing()
+
+    // 解构赋值导入
+    import {name, study} from './js/module1.js'
+    console.log(name)
+    import {name as a2, study as s2} from './js/module2.js'
+    s2()
+    // import {default as m3} from './js/module3.js'
+    // m3.sing()
+
+    // 简便形式  针对默认暴露
+    import m3 from './js/module3.js'
+    console.log(m3.name)
+  </script>
+</body>
+</html>
