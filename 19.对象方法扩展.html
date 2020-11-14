@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. Object.is 判断两个值是否完全相等
+    console.log(Object.is(120, '120'))  // false
+
+    // 2. Object.assign
+    // a. 为对象添加属性
+    class Point {
+      constructor(x, y) {
+        Object.assign(this, {x, y})
+      }
+    }
+    // b. 为对象添加方法
+    Object.assign(SomeClass.prototype, {
+      someMethod(a, b) {
+
+      },
+      anothermethod() {
+
+      }
+    })
+    // c. 克隆对象
+    function clone(origin) {
+      Object.assign({}, origin)
+    }
+    // d. 合并多个对象
+    const merge = (target, ...sources) => Object.assign(target, ...sources)
+    // e. 为属性指定默认值
+    
+
+    // 3. Object.setPrototypeOf 
+    // Object.getPrototypeOf
+
+  </script>
+</body>
+</html>
