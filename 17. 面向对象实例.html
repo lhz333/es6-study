@@ -85,10 +85,8 @@
   </div>
 
   <script>
-    var that
     class Tab {
       constructor(mainId) {
-        that = this
         this.mainTab = document.querySelector(`#${mainId}`)
         this.tabUl = this.mainTab.querySelector('.tab-list')
         this.addBtn = this.mainTab.querySelector('.tab-add')
@@ -98,11 +96,11 @@
       // 初始化
       init() {
         this.updateNode()
-        this.addBtn.onclick = this.addTab
+        this.addBtn.onclick = this.addTab.bind(this)
         for(let i=0; i<this.tabLis.length; i++) {
           this.tabLis[i].index = i
-          this.tabLis[i].onclick = this.toggleTab
-          this.removeBtn[i].onclick = this.removeTab
+          this.tabLis[i].onclick = this.toggleTab.bind(this.tabLis[i], this)
+          this.removeBtn[i].onclick = this.removeTab.bind(this.removeBtn[i], this)
           this.texts[i].ondblclick = this.editTab
           this.tabSections[i].ondblclick = this.editTab
         }
@@ -115,10 +113,10 @@
         this.removeBtn = this.mainTab.querySelectorAll('.tab-list li .remove')
       }
       // 切换
-      toggleTab() {
-        that.clearClassName()
+      toggleTab(_this) {
+        _this.clearClassName()
         this.className = 'active'
-        that.tabSections[this.index].className = 'active'
+        _this.tabSections[this.index].className = 'active'
       }
       // 清空选中状态
       clearClassName() {
@@ -129,25 +127,25 @@
       }
       // 添加
       addTab() {
-        that.clearClassName()
+        this.clearClassName()
         let random = Math.random()
         let li = `<li class="active"><span>新选项卡</span><b class="remove">x</b></li>`
         let section = `<section class="active">新选项卡${random}内容</section>`
-        that.tabUl.insertAdjacentHTML('beforeend', li)
-        that.tabContent.insertAdjacentHTML('beforeend', section)
-        that.init()
+        this.tabUl.insertAdjacentHTML('beforeend', li)
+        this.tabContent.insertAdjacentHTML('beforeend', section)
+        this.init()
       }
       // 移除
-      removeTab(e) {
+      removeTab(_this, e) {
         // 阻止冒泡
         e.stopPropagation()
         let index = this.parentNode.index
-        that.tabLis[index].remove()
-        that.tabSections[index].remove()
-        that.init()
-        if(that.mainTab.querySelector('.active')) return
+        _this.tabLis[index].remove()
+        _this.tabSections[index].remove()
+        _this.init()
+        if(_this.mainTab.querySelector('.active')) return
         index > 0 ? index-- : index
-        that.tabLis[index] && that.tabLis[index].click()
+        _this.tabLis[index] && _this.tabLis[index].click()
       }
       // 编辑
       editTab() {
